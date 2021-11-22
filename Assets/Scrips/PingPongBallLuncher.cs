@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class PingPongBallLuncher : MonoBehaviour
 {
+    private enum eStatus
+    {
+        ACCELERATE,
+        DIS_ACCELERATE,
+        DESTROY,
+    }
+    eStatus status = eStatus.ACCELERATE;
+
     public float lunchForce = 5.0f;
     private Rigidbody m_rigidbody;
-    private bool addForceStatus = true;
+    private float speed = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,25 +24,45 @@ public class PingPongBallLuncher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (true == addForceStatus)
-            m_rigidbody.AddForce(Vector3.forward * lunchForce * -1);
+        speed = m_rigidbody.velocity.magnitude;
 
-        /* 球太低、發球台射出後速度趨近靜止，即刪除球物件 */
-        if (addForceStatus == false)
+        PingPongBall_Update();
+        PingPongBall_Control();
+    }
+
+    private void PingPongBall_Update()
+    {
+        if (status == eStatus.ACCELERATE)
+        {            
+            if(speed > 100)
+                status = eStatus.DESTROY;
+        }
+
+        else if (status == eStatus.DIS_ACCELERATE)
         {
             if ((transform.position.y < 0.1)
-            || (m_rigidbody.velocity.magnitude < 0.1))
-                Destroy(gameObject);
+            || (speed < 0.1))
+                status = eStatus.DESTROY;
+        }
+    }
+
+    private void PingPongBall_Control()
+    {
+        if (status == eStatus.ACCELERATE)
+        {
+            m_rigidbody.AddForce(Vector3.forward * lunchForce * -1);
+        }
+
+        else if(status == eStatus.DESTROY)
+        {
+            Destroy(gameObject);
         }
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        /* 碰觸到球桌，球停止加速 */
-        if(other.gameObject.CompareTag("PingPongTable"))
-        {
-            Debug.Log("PingPongTable trigger!");
-            addForceStatus = false;
-        }
+        /* 碰觸到東西，球停止加速 */
+        Debug.Log("PingPong trigger!");
+        status = eStatus.DIS_ACCELERATE;        
     }
 }
