@@ -269,7 +269,7 @@ Transform:
   - {fileID: 1610923710}
   - {fileID: 963194228}
   - {fileID: 934179577}
-  - {fileID: 384243828}
+  - {fileID: 1519589395}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -306,9 +306,8 @@ GameObject:
   - component: {fileID: 384243830}
   - component: {fileID: 384243829}
   - component: {fileID: 384243831}
-  - component: {fileID: 384243832}
   m_Layer: 0
-  m_Name: Racket
+  m_Name: racket
   m_TagString: Racket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -321,12 +320,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 384243827}
-  m_LocalRotation: {x: 0.39062685, y: -0.33210275, z: -0.07868888, w: 0.85494244}
-  m_LocalPosition: {x: 0.221, y: 0.64, z: 1.5}
-  m_LocalScale: {x: 3.1764057, y: 3.1764057, z: 3.1764057}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.09215501, y: 0.32577837, z: 0.07867455}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 253286617}
-  m_RootOrder: 3
+  m_Father: {fileID: 1519589395}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 38, y: -53, z: -30}
 --- !u!23 &384243829
 MeshRenderer:
@@ -392,18 +391,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.23834576, y: 0.38131756, z: 0.040000115}
   m_Center: {x: -0.000000082442554, y: -2.3980817e-14, z: 0.01087537}
---- !u!114 &384243832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384243827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 494d9402f443c1d4bb7be6a1cd75a547, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &484465269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -920,6 +907,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1294613173}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1519589394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1519589395}
+  - component: {fileID: 1519589396}
+  m_Layer: 0
+  m_Name: Racket
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1519589395
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519589394}
+  m_LocalRotation: {x: 0.27300876, y: -0.33659637, z: -0.033081315, w: 0.9005969}
+  m_LocalPosition: {x: 0.283, y: 0.203, z: 0.488}
+  m_LocalScale: {x: 3.176406, y: 3.1764057, z: 3.1764054}
+  m_Children:
+  - {fileID: 384243828}
+  m_Father: {fileID: 253286617}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 28, y: -45, z: -16}
+--- !u!114 &1519589396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519589394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 494d9402f443c1d4bb7be6a1cd75a547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 500
 --- !u!1 &1551743596
 GameObject:
   m_ObjectHideFlags: 0

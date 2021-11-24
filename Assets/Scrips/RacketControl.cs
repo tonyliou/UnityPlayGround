@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class RacketControl : MonoBehaviour
 {
+    public float speed = 500f;
+
+    private enum eSwipeStatus
+    {
+        SWIPE_IDLE,
+        SWIPE_LEFT,
+        SWIPE_RIGHT,
+    };
+
+    private eSwipeStatus swipeStatus = eSwipeStatus.SWIPE_IDLE;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,16 +23,43 @@ public class RacketControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Swipe_Update();
+        Swipe_Control();
+    }
+
+    private void Swipe_Update()
+    {
         if (Input.GetButtonDown("Fire1"))
         {
-            // transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-            transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+            swipeStatus = eSwipeStatus.SWIPE_LEFT;
         }
+
         else if (Input.GetButtonUp("Fire1"))
         {
-            // transform.rotation = Quaternion.Euler(38f, -53f, -30f);
-            transform.localRotation = Quaternion.Euler(38f, -53f, -30f);
-
+            swipeStatus = eSwipeStatus.SWIPE_IDLE;
         }
+        else if (Input.GetButtonDown("Fire2"))
+        {
+            swipeStatus = eSwipeStatus.SWIPE_RIGHT;
+        }
+
+        else if (Input.GetButtonUp("Fire2"))
+        {
+            swipeStatus = eSwipeStatus.SWIPE_IDLE;
+        }
+
     }
+
+    private void Swipe_Control()
+    {
+        if (swipeStatus == eSwipeStatus.SWIPE_IDLE)
+            this.transform.localRotation = Quaternion.RotateTowards(this.transform.localRotation, Quaternion.Euler(new Vector3(28f, -45f, -16f)), Time.deltaTime * speed);
+        
+        else if (swipeStatus == eSwipeStatus.SWIPE_LEFT)
+            this.transform.localRotation = Quaternion.RotateTowards(this.transform.localRotation, Quaternion.Euler(new Vector3(28f, -120f, -16f)), Time.deltaTime * speed);
+        
+        else if (swipeStatus == eSwipeStatus.SWIPE_RIGHT)
+            this.transform.localRotation = Quaternion.RotateTowards(this.transform.localRotation, Quaternion.Euler(new Vector3(28f, 30f, -16f)), Time.deltaTime * speed);
+    }
+
 }
