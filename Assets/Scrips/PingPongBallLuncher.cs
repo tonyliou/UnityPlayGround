@@ -8,6 +8,7 @@ public class PingPongBallLuncher : MonoBehaviour
     {
         ACCELERATE,
         DIS_ACCELERATE,
+        HIT,
         DESTROY,
     }
     eStatus status = eStatus.ACCELERATE;
@@ -32,8 +33,9 @@ public class PingPongBallLuncher : MonoBehaviour
 
     private void PingPongBall_Update()
     {
-        if (status == eStatus.ACCELERATE)
-        {            
+        if ((status == eStatus.ACCELERATE)
+        || (status == eStatus.HIT))
+        {
             if(speed > 100)
                 status = eStatus.DESTROY;
         }
@@ -53,6 +55,12 @@ public class PingPongBallLuncher : MonoBehaviour
             m_rigidbody.AddForce(Vector3.forward * lunchForce * -1);
         }
 
+        else if (status == eStatus.HIT)
+        {
+            Vector3 dir = new Vector3(0, -0, 1);
+            m_rigidbody.AddForce(dir * lunchForce);
+        }
+
         else if(status == eStatus.DESTROY)
         {
             Destroy(gameObject);
@@ -61,8 +69,16 @@ public class PingPongBallLuncher : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        /* 碰觸到東西，球停止加速 */
-        Debug.Log("PingPong trigger!");
-        status = eStatus.DIS_ACCELERATE;        
+        if (other.gameObject.CompareTag("PingPongTable"))
+        {
+            Debug.Log("PingPong trigger!");
+            status = eStatus.DIS_ACCELERATE;
+        }
+
+        else if (other.gameObject.CompareTag("Racket"))
+        {
+            Debug.Log("Racket trigger!");
+            status = eStatus.HIT;
+        }
     }
 }
