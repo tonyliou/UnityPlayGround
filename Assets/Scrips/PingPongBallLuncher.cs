@@ -14,6 +14,7 @@ public class PingPongBallLuncher : MonoBehaviour
     eStatus status = eStatus.ACCELERATE;
 
     public float lunchForce = 5.0f;
+    public float hitForce = 5.0f;
     private Rigidbody m_rigidbody;
     private float speed = 0;
     // Start is called before the first frame update
@@ -58,7 +59,7 @@ public class PingPongBallLuncher : MonoBehaviour
         else if (status == eStatus.HIT)
         {
             Vector3 dir = new Vector3(0, -0, 1);
-            m_rigidbody.AddForce(dir * lunchForce);
+            m_rigidbody.AddForce(dir * hitForce);
         }
 
         else if(status == eStatus.DESTROY)

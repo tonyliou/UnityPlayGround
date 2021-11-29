@@ -321,7 +321,7 @@ Transform:
   m_GameObject: {fileID: 384243827}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.09215501, y: 0.32577837, z: 0.07867455}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 1519589395}
   m_RootOrder: 0
@@ -616,7 +616,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 406e377f42f5bad4eb6acb9fc04c1598, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.2699575
+      value: 6.27
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 406e377f42f5bad4eb6acb9fc04c1598, type: 3}
       propertyPath: m_LocalRotation.w
@@ -798,7 +798,7 @@ BoxCollider:
   m_GameObject: {fileID: 978399893}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.03562145, y: 2.1351805e-12, z: 0.0027880468}
   m_Center: {x: 0.000018236227, y: 0.000000003042286, z: 0.016495116}
@@ -846,8 +846,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.0000105, y: 1.214546, z: 13.212631}
-  m_Center: {x: 0.00000052726955, y: -0.6072719, z: -1.6063133}
+  m_Size: {x: 10.0000105, y: 1.214546, z: 18.622446}
+  m_Center: {x: 0.0000005428207, y: -0.607272, z: -4.3112206}
 --- !u!23 &1113444162
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1322,15 +1322,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2039668387}
-  m_LocalRotation: {x: -0.26908806, y: -0, z: -0, w: 0.9631156}
-  m_LocalPosition: {x: -0.96, y: 3.1, z: 4.157}
+  m_LocalRotation: {x: -0.21643952, y: 0, z: 0, w: 0.97629607}
+  m_LocalPosition: {x: -1, y: 3, z: 4}
   m_LocalScale: {x: 0.53764, y: 0.53764, z: 0.53764}
   m_Children:
   - {fileID: 1551743597}
   - {fileID: 1294613174}
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: -31.22, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -25, y: 0, z: 0}
 --- !u!114 &2039668389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1343,7 +1343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0979a8fb9f02094439d9c0834ab9537e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballLuncherGun: {fileID: 1551743596}
+  ballLuncherGun: {fileID: 2039668387}
   pingPongBallPrefab: {fileID: 1869821274027648364, guid: a3f3422b4b1fb2c488699195316a12ab, type: 3}
   intervalSec: 1
 --- !u!1 &2080023656 stripped
