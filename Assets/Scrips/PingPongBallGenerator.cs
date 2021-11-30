@@ -25,7 +25,7 @@ public class PingPongBallGenerator : MonoBehaviour
             GameObject go = Instantiate(pingPongBallPrefab) as GameObject;
 
             float px = Random.Range(-1.0f, 1.0f);
-            ballLuncherGun.transform.position = new Vector3(px, 3, 4);
+            ballLuncherGun.transform.localPosition = new Vector3(px, 3.6f, 0.6f);
             Vector3 ballPosition = ballLuncherGun.transform.position;
             go.transform.position = ballPosition;
         }
