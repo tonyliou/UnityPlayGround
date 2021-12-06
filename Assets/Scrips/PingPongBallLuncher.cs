@@ -13,20 +13,25 @@ public class PingPongBallLuncher : MonoBehaviour
     }
     eStatus status = eStatus.ACCELERATE;
 
-    public float lunchForce = 5.0f;
-    public float hitForce = 5.0f;
+    private float lunchForce = 0f;
+    private float hitForce = 0f;
     private Rigidbody m_rigidbody;
     private float speed = 0;
+
+    private PingPongGameProjectConfigScrip configScrip;
     // Start is called before the first frame update
     void Start()
     {
         m_rigidbody = GetComponent<Rigidbody>();
+        configScrip = GetComponent<PingPongGameProjectConfigScrip>();
     }
 
     // Update is called once per frame
     void Update()
     {
         speed = m_rigidbody.velocity.magnitude;
+        lunchForce = configScrip.GetLuncherForce();
+        hitForce = configScrip.GetHitForce();
 
         PingPongBall_Update();
         PingPongBall_Control();
